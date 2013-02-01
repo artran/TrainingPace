@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface CalculatorViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UISegmentedControl *distanceUnitChoice;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *paceUnitChoice;
 
+- (IBAction)paceUnitChanged:(id)sender;
+- (IBAction)calculatePressed:(id)sender;
 @end

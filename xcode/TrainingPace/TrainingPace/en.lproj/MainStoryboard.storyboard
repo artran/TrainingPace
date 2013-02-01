@@ -19,10 +19,10 @@
             </objects>
             <point key="canvasLocation" x="220" y="171"/>
         </scene>
-        <!--View Controller-->
+        <!--Calculator View Controller-->
         <scene sceneID="O3Y-9G-cL4">
             <objects>
-                <viewController id="s2Q-Sy-Gi8" sceneMemberID="viewController">
+                <viewController id="s2Q-Sy-Gi8" customClass="CalculatorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7yZ-Ke-uzH">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,6 +86,9 @@
                                     <segment title="min/km"/>
                                     <segment title="min/mile"/>
                                 </segments>
+                                <connections>
+                                    <action selector="paceUnitChanged:" destination="s2Q-Sy-Gi8" eventType="valueChanged" id="OgW-lq-kxL"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkQ-Ex-fy1">
                                 <constraints>
@@ -99,6 +102,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="calculatePressed:" destination="s2Q-Sy-Gi8" eventType="touchUpInside" id="wsh-JC-yv2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Easy run training pace:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="kYl-r8-j5U">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -166,7 +172,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="U1O-Rc-vIM" kind="push" id="Jxs-Pb-3t5"/>
+                                    <segue destination="U1O-Rc-vIM" kind="push" id="WPw-iJ-dNh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -237,6 +243,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KZP-a0-fd9"/>
+                    <connections>
+                        <outlet property="distanceUnitChoice" destination="Afm-aG-N3z" id="WzA-6d-mme"/>
+                        <outlet property="paceUnitChoice" destination="xhp-uj-agA" id="CPl-lg-fer"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIZ-FC-VNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -269,11 +279,6 @@
             <point key="canvasLocation" x="1125" y="171"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

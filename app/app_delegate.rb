@@ -1,11 +1,14 @@
 class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
-    @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.applicationFrame)
-    @window.makeKeyAndVisible
-
-    calculatorController = CalculatorViewController.alloc.initWithNibName(nil, bundle: nil)
-    nav_controller = UINavigationController.alloc.initWithRootViewController(calculatorController)
-    @window.rootViewController = nav_controller
     true
+  end
+  
+  # Cannot define these using attr_accessor :window. 
+  def window
+    @window
+  end
+  
+  def setWindow(window)
+    @window = window
   end
 end
