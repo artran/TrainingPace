@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		717D3A4A16BC6C50006CDF4A /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 717D3A4916BC6C50006CDF4A /* CalculatorViewController.m */; };
 		71A1F43E16BB2FA000441557 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A1F43D16BB2FA000441557 /* UIKit.framework */; };
 		71A1F44016BB2FA000441557 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A1F43F16BB2FA000441557 /* Foundation.framework */; };
 		71A1F44216BB2FA000441557 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A1F44116BB2FA000441557 /* CoreGraphics.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		717D3A4816BC6C50006CDF4A /* CalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalculatorViewController.h; path = controllers/CalculatorViewController.h; sourceTree = "<group>"; };
+		717D3A4916BC6C50006CDF4A /* CalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalculatorViewController.m; path = controllers/CalculatorViewController.m; sourceTree = "<group>"; };
 		71A1F43916BB2FA000441557 /* TrainingPace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainingPace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71A1F43D16BB2FA000441557 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		71A1F43F16BB2FA000441557 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -123,6 +126,8 @@
 				71A1F45816BB2FA000441557 /* ViewController.h */,
 				71A1F45916BB2FA000441557 /* ViewController.m */,
 				71A1F44416BB2FA000441557 /* Supporting Files */,
+				717D3A4816BC6C50006CDF4A /* CalculatorViewController.h */,
+				717D3A4916BC6C50006CDF4A /* CalculatorViewController.m */,
 			);
 			path = TrainingPace;
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 				71A1F44A16BB2FA000441557 /* main.m in Sources */,
 				71A1F44E16BB2FA000441557 /* AppDelegate.m in Sources */,
 				71A1F45A16BB2FA000441557 /* ViewController.m in Sources */,
+				717D3A4A16BC6C50006CDF4A /* CalculatorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +453,7 @@
 				71A1F47416BB2FA100441557 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		71A1F47516BB2FA100441557 /* Build configuration list for PBXNativeTarget "TrainingPaceTests" */ = {
 			isa = XCConfigurationList;
@@ -455,6 +462,7 @@
 				71A1F47716BB2FA100441557 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
