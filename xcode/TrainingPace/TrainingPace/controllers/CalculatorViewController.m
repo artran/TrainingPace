@@ -14,6 +14,9 @@
 
 @implementation CalculatorViewController
 
+@synthesize distanceUnitChoice = _distanceUnitChoice;
+@synthesize paceUnitChoice = _paceUnitChoice;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,5 +39,8 @@
 }
 
 - (IBAction)paceUnitChanged:(id)sender {
+}
+
+- (IBAction)calculatePressed:(id)sender {
 }
 @end
