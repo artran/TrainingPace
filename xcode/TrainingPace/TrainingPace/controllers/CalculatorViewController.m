@@ -43,4 +43,8 @@
 
 - (IBAction)calculate_pressed:(id)sender {
 }
+- (void)viewDidUnload {
+    [self setCalculate_button:nil];
+    [super viewDidUnload];
+}
 @end

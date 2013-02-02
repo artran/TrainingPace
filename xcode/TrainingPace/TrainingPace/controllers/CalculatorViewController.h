@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *speed_pace_label;
 @property (weak, nonatomic) IBOutlet UILabel *long_pace_label;
 
+@property (weak, nonatomic) IBOutlet UIButton *calculate_button;
+
 - (IBAction)pace_unit_changed:(id)sender;
 - (IBAction)calculate_pressed:(id)sender;
 @end

@@ -244,6 +244,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="KZP-a0-fd9"/>
                     <connections>
+                        <outlet property="calculate_button" destination="jkQ-Ex-fy1" id="Xc3-Vk-ixJ"/>
                         <outlet property="distance_field" destination="NMC-48-846" id="9cJ-an-drt"/>
                         <outlet property="distance_unit_choice" destination="Afm-aG-N3z" id="nZ9-Wv-Dr1"/>
                         <outlet property="easy_pace_label" destination="UZy-MY-TkB" id="eiE-t6-7tJ"/>
@@ -294,6 +295,7 @@
             <relationships>
                 <relationship kind="action" name="calculate_pressed:"/>
                 <relationship kind="action" name="pace_unit_changed:"/>
+                <relationship kind="outlet" name="calculate_button" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="distance_field" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="distance_unit_choice" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="easy_pace_label" candidateClass="UILabel"/>
