@@ -87,7 +87,7 @@
                                     <segment title="min/mile"/>
                                 </segments>
                                 <connections>
-                                    <action selector="paceUnitChanged:" destination="s2Q-Sy-Gi8" eventType="valueChanged" id="OgW-lq-kxL"/>
+                                    <action selector="pace_unit_changed:" destination="s2Q-Sy-Gi8" eventType="valueChanged" id="gBE-WI-dnR"/>
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkQ-Ex-fy1">
@@ -103,7 +103,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="calculatePressed:" destination="s2Q-Sy-Gi8" eventType="touchUpInside" id="wsh-JC-yv2"/>
+                                    <action selector="calculate_pressed:" destination="s2Q-Sy-Gi8" eventType="touchUpInside" id="d0Y-Yn-V9v"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Easy run training pace:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="kYl-r8-j5U">
@@ -244,8 +244,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="KZP-a0-fd9"/>
                     <connections>
-                        <outlet property="distanceUnitChoice" destination="Afm-aG-N3z" id="WzA-6d-mme"/>
-                        <outlet property="paceUnitChoice" destination="xhp-uj-agA" id="CPl-lg-fer"/>
+                        <outlet property="distance_field" destination="NMC-48-846" id="9cJ-an-drt"/>
+                        <outlet property="distance_unit_choice" destination="Afm-aG-N3z" id="nZ9-Wv-Dr1"/>
+                        <outlet property="easy_pace_label" destination="UZy-MY-TkB" id="eiE-t6-7tJ"/>
+                        <outlet property="long_pace_label" destination="vFa-mj-EiM" id="XfZ-eo-2yJ"/>
+                        <outlet property="pace_unit_choice" destination="xhp-uj-agA" id="UF7-Z8-MWK"/>
+                        <outlet property="speed_pace_label" destination="APz-3W-IVC" id="8ew-8U-b4V"/>
+                        <outlet property="tempo_pace_label" destination="pAf-GW-ves" id="bLd-qs-ee7"/>
+                        <outlet property="time_hours_field" destination="hbV-Mr-tej" id="oSE-qZ-8Bc"/>
+                        <outlet property="time_mins_field" destination="MPW-Sm-44d" id="9F0-Av-NNS"/>
+                        <outlet property="time_secs_field" destination="TWM-5z-v1W" id="lUU-L2-fEH"/>
+                        <outlet property="vo2_pace_label" destination="gh6-Vs-FMH" id="Fgu-fa-pex"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIZ-FC-VNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -279,6 +288,29 @@
             <point key="canvasLocation" x="1125" y="171"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="CalculatorViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalculatorViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="calculatePressed:"/>
+                <relationship kind="action" name="paceUnitChanged:"/>
+                <relationship kind="outlet" name="distanceField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="distanceUnitChoice" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="easyPaceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="longPaceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="paceUnitChoice" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="speedPaceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tempoPaceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeHoursField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="timeMinsField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="timeSecsField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="vo2PaceLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

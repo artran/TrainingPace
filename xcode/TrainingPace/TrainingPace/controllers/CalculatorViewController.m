@@ -14,8 +14,8 @@
 
 @implementation CalculatorViewController
 
-@synthesize distanceUnitChoice = _distanceUnitChoice;
-@synthesize paceUnitChoice = _paceUnitChoice;
+@synthesize distance_unit_choice = _distanceUnitChoice;
+@synthesize pace_unit_choice = _paceUnitChoice;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,9 +38,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)paceUnitChanged:(id)sender {
+- (IBAction)pace_unit_changed:(id)sender {
 }
 
-- (IBAction)calculatePressed:(id)sender {
+- (IBAction)calculate_pressed:(id)sender {
 }
 @end
