@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="width" constant="47" id="gYn-pJ-4vG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Time (h:m:s):" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="msw-oe-NbO">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -54,21 +54,21 @@
                                     <constraint firstAttribute="width" constant="48" id="zW8-VF-RRE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TWM-5z-v1W">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="mm0-SZ-XYj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPW-Sm-44d">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="YDC-hB-zLc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Afm-aG-N3z">
                                 <segments>
@@ -292,19 +292,19 @@
         <class className="CalculatorViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CalculatorViewController.h"/>
             <relationships>
-                <relationship kind="action" name="calculatePressed:"/>
-                <relationship kind="action" name="paceUnitChanged:"/>
-                <relationship kind="outlet" name="distanceField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="distanceUnitChoice" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="easyPaceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="longPaceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="paceUnitChoice" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="speedPaceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tempoPaceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeHoursField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="timeMinsField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="timeSecsField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="vo2PaceLabel" candidateClass="UILabel"/>
+                <relationship kind="action" name="calculate_pressed:"/>
+                <relationship kind="action" name="pace_unit_changed:"/>
+                <relationship kind="outlet" name="distance_field" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="distance_unit_choice" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="easy_pace_label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="long_pace_label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pace_unit_choice" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="speed_pace_label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tempo_pace_label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="time_hours_field" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="time_mins_field" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="time_secs_field" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="vo2_pace_label" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">

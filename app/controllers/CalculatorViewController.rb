@@ -16,6 +16,8 @@ class CalculatorViewController < UIViewController
   # iOS lifecycle methods
   def viewDidLoad
       super
+      
+      self.distance_field.delegate = self
   end
   
   # segue methods
@@ -34,39 +36,46 @@ class CalculatorViewController < UIViewController
   
   # Actions
   def pace_unit_changed(sender)
-    self.metric_pace = self.pace_unit_choice.selectedSegmentIndex == 0
+    @metric_pace = self.pace_unit_choice.selectedSegmentIndex == 0
     calculate_paces
   end
   
   def calculate_pressed(sender)
-    self.easy_pace_label.text = '1:23'
+    setup_calculation
+  end
+  
+  # text field delegate methods
+  def textFieldShouldReturn(textField)
+    puts 'return'
+    textField.resignFirstResponder
+    true
   end
   
   ################ calculator implementation ################
 
   def setup_calculation
-       #   self.minsTaken = [self.timeTakenHrsEditor.text floatValue] * 60
-       #      + [self.timeTakenMinsEditor.text floatValue]
-       #      + [self.timeTakenSecsEditor.text floatValue] /60;
-       #    
-       #      self.metresRaced = [self.distanceEditor.text floatValue];
-       #    
-       #      self.metricDistance = (self.distanceUnitChoice.selectedSegmentIndex == 0);
-       #    
-       #      if (self.metricDistance) {
-       #          self.metresRaced *= 1000;
-       #      } else {
-       #          self.metresRaced *= 1609;
-       #      }
-       #    
-       #      self.speed = self.metresRaced / self.minsTaken;
-       #    
-       #      self.vo2Max = [RunCalcMaths vo2ForVelocity:self.speed] / [RunCalcMaths percentVO2MaxForTime:self.minsTaken];
-       #    
-       #      [self calculatePaces];
+    @mins_taken = self.time_hours_field.text.to_i * 60 + self.time_mins_field.text.to_i + self.time_secs_field.text.to_i / 60.0
+    puts @mins_taken
+    @metres_raced = self.distance_field.text.to_f
+    @metric_distance = self.distance_unit_choice.selectedSegmentIndex == 0
+    if @metric_distance then
+      @metres_raced *= 1000
+    else
+      @metres_raced *= 1609
+    end
+    
+    puts @metres_raced
+    
+    @speed = @metres_raced / @mins_taken
+    puts @speed
+    @vo2_max = 48
+    #      self.vo2Max = [RunCalcMaths vo2ForVelocity:self.speed] / [RunCalcMaths percentVO2MaxForTime:self.minsTaken];
+    calculate_paces
   end
 
   def calculate_paces
+    self.easy_pace_label.text = "#{@metres_raced}"
+    self.tempo_pace_label.text = "#{@mins_taken}"
         # float velEasy = [RunCalcMaths velocityForVO2:(self.vo2Max * .7)];
         # float velTempo = [RunCalcMaths velocityForVO2:(self.vo2Max * .88)];
         # float velVo2 = [RunCalcMaths velocityForVO2:(self.vo2Max)];
