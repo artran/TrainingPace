@@ -21,6 +21,11 @@ class CalculatorViewController < UIViewController
       self.title = "Pace calculator"
 
       @window = UIApplication.sharedApplication.windows[0]
+
+      self.distance_field.delegate = self
+      self.time_hours_field.delegate = self
+      self.time_mins_field.delegate = self
+      self.time_secs_field.delegate = self
   end
 
   # segue methods
@@ -49,13 +54,29 @@ class CalculatorViewController < UIViewController
     calculate_paces
   end
 
+  # UITextFieldDelegate methods
+  def textField(text_field, shouldChangeCharactersInRange: range, replacementString: replacement_string)
+    starts_with_zero = (replacement_string.start_with?('0') && range.location == 0 && range.length == 0)
+    if starts_with_zero
+      return false
+    end
+
+    if text_field == distance_field
+      contains_non_digit = !! /[^0-9.]+/.match(replacement_string)
+    else
+      contains_non_digit = !! /[^0-9]+/.match(replacement_string)
+    end
+
+    !contains_non_digit
+  end
+
   ################ calculator implementation ################
 
   def calculate_paces
     mins_taken = self.time_hours_field.text.to_i * 60 + self.time_mins_field.text.to_i + self.time_secs_field.text.to_i / 60.0
     metres_raced = self.distance_field.text.to_f
 
-    metric_distance = self.pace_unit_choice.selectedSegmentIndex == 0
+    metric_distance = self.distance_unit_choice.selectedSegmentIndex == 0
     if metric_distance
       metres_raced *= 1000
     else
@@ -73,15 +94,15 @@ class CalculatorViewController < UIViewController
       vel_long = velocity_for_vo2(vo2_max * 0.6)
       vel_yasso = vel_vo2 * 1.95
 
-      @metric_pace = self.pace_unit_choice.selectedSegmentIndex == 0
+      metric_pace = self.pace_unit_choice.selectedSegmentIndex == 0
 
-      suffix = @metric_pace ? 'min/km' : 'min/mile'
+      suffix = metric_pace ? 'min/km' : 'min/mile'
 
-      self.easy_pace_label.text = "%s #{suffix}" % pace_for_speed(vel_easy)
-      self.tempo_pace_label.text = "%s #{suffix}" % pace_for_speed(vel_tempo)
-      self.vo2_pace_label.text = "%s #{suffix}" % pace_for_speed(vel_vo2)
-      self.speed_pace_label.text = "%s #{suffix}" % pace_for_speed(vel_speed)
-      self.long_pace_label.text = "%s #{suffix}" % pace_for_speed(vel_long)
+      self.easy_pace_label.text = "%s #{suffix}" % pace_for_speed(vel_easy, metric_pace)
+      self.tempo_pace_label.text = "%s #{suffix}" % pace_for_speed(vel_tempo, metric_pace)
+      self.vo2_pace_label.text = "%s #{suffix}" % pace_for_speed(vel_vo2, metric_pace)
+      self.speed_pace_label.text = "%s #{suffix}" % pace_for_speed(vel_speed, metric_pace)
+      self.long_pace_label.text = "%s #{suffix}" % pace_for_speed(vel_long, metric_pace)
         
       # BOOL oldMetricPace = self.metricPace;
       # self.metricPace = NO;
@@ -94,9 +115,9 @@ class CalculatorViewController < UIViewController
   
   # Takes a speed in metres / minute a converts it to a string representing a pace in
   # minutes per mile or km.
-  def pace_for_speed(speed)
-    factor = @metricPace ? 1000 : 1609
-    speed = 1 / speed * factor
+  def pace_for_speed(speed, metric_pace)
+    factor = metric_pace ? 1000 : 1609
+    speed = 1.0 / speed * factor
       
     minutes = speed.floor
     seconds = ((speed - minutes) * 60).floor
