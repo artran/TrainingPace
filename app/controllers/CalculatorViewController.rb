@@ -62,12 +62,10 @@ class CalculatorViewController < UIViewController
     end
 
     if text_field == distance_field
-      contains_non_digit = !! /[^0-9.]+/.match(replacement_string)
+      return ! /[^0-9.]+/.match(replacement_string)
     else
-      contains_non_digit = !! /[^0-9]+/.match(replacement_string)
+      return ! /[^0-9]+/.match(replacement_string)
     end
-
-    !contains_non_digit
   end
 
   ################ calculator implementation ################
@@ -96,7 +94,7 @@ class CalculatorViewController < UIViewController
 
       metric_pace = self.pace_unit_choice.selectedSegmentIndex == 0
 
-      suffix = metric_pace ? 'min/km' : 'min/mile'
+      suffix = metric_pace ? 'min/km' : 'min/mi'
 
       self.easy_pace_label.text = "%s #{suffix}" % pace_for_speed(vel_easy, metric_pace)
       self.tempo_pace_label.text = "%s #{suffix}" % pace_for_speed(vel_tempo, metric_pace)
